@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>MainFormIcon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="FunCollectionIcon.png" />
+    <None Remove="InstantDeathIcon.png" />
+    <None Remove="LoadingScreen.png" />
+    <None Remove="MainLoadingScreen.png" />
+    <None Remove="MainLogo.png" />
+    <None Remove="MotorwayLogo_700px-1.png" />
+    <None Remove="NoFailIcon.png" />
+    <None Remove="NoFailIcon1.png" />
+    <None Remove="UltimateCollection.png" />
+    <None Remove="UnlimitedUpgradesIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="{215d64d2-031c-33c7-96e3-61794cd1ee61}">
+      <WrapperTool>tlbimp</WrapperTool>
+      <VersionMinor>0</VersionMinor>
+      <VersionMajor>2</VersionMajor>
+      <Guid>215d64d2-031c-33c7-96e3-61794cd1ee61</Guid>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="FunCollectionIcon.png" />
+    <Resource Include="InstantDeathIcon.png" />
+    <Resource Include="LoadingScreen.png" />
+    <Resource Include="MainLoadingScreen.png" />
+    <Resource Include="MainLogo.png" />
+    <Resource Include="MotorwayLogo_700px-1.png" />
+    <Resource Include="NoFailIcon.png" />
+    <Resource Include="NoFailIcon1.png" />
+    <Resource Include="UltimateCollection.png" />
+    <Resource Include="UnlimitedUpgradesIcon.png" />
+  </ItemGroup>
+  <Target Name="AfterCompile">
+    <Exec Command="if &quot;$(ConfigurationName)&quot; == &quot;Release&quot; (&quot;$(ProjectDir)_ConfuserEx\Confuser.CLI.exe&quot; &quot;$(ProjectDir)_ConfuserEx\c.crproj&quot;)&#xD;&#xA;" />
+  </Target>
+</Project>

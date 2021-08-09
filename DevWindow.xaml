@@ -1,0 +1,21 @@
+﻿<Window x:Class="MiniMotorways_Mod_Manager.DevWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MiniMotorways_Mod_Manager"
+        mc:Ignorable="d"
+        Title="DevWindow" Height="450" Width="800">
+    <Grid>
+        <ListView x:Name="LogEntryList">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Modification" Width="70"
+                            DisplayMemberBinding="{Binding Modification}"></GridViewColumn>
+                    <GridViewColumn Header="Message" Width="440"
+                            DisplayMemberBinding="{Binding Message}"></GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>

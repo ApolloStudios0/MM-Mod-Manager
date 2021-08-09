@@ -1,0 +1,20 @@
+<project outputDir="C:\Users\Joelw\Desktop\Mini Motorways Mod Manager\MiniMotorways_Mod_Manager\obj\Release" baseDir="C:\Users\Joelw\Desktop\Mini Motorways Mod Manager\MiniMotorways_Mod_Manager\obj\Release" xmlns="http://confuser.codeplex.com">
+<rule pattern="true" />
+<module path="MiniMotorways_Mod_Manager.dll">
+<rule pattern="true">
+<protection id="anti ildasm" />
+<protection id="constants" />
+<protection id="ctrl flow" />
+<protection id="ref proxy" />
+<protection id="resources" />
+<protection id = "rename" >
+<argument name = "mode" value = "decodable" />
+<argument name = "renPublic" value = "false" />
+<argument name = "renEnum" value = "false" />
+<argument name = "renameArgs" value = "false" />
+</protection >
+</rule>
+</module>
+<probePath>C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\5.0.0\ref\net5.0</probePath>
+<probePath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\5.0.0\ref\net5.0</probePath>
+</project>
