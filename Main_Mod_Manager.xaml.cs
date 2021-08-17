@@ -24,15 +24,25 @@ namespace MiniMotorways_Mod_Manager
 
         bool IsDeveloper = true; // Enables / Disables DevTools ( Log File )
 
-        string NoFailDownloadURL = ""; // No Fail Mod URL
+        Dictionary<string, string> URLdict = new Dictionary<string, string>();
+
+        string NoFailDownloadURL = ""; // No Fail URL
         string UnlimitedUpgradesDownloadURL = ""; // Unlimited Upgrades URL
         string InstantDeathDownloadURL = ""; // Instant Death URL
         string NoFailCollectionDownloadURL = ""; // No Fail Collection URL
-        string UltimateCollectionDownloadURL = ""; // Ultimate Collection URL
+        string InstantDeathCollectionDownloadURL = ""; // Instant Death Collection URL
+
+        string DefaultSteamDirectory = @"C:\SteamLibrary\steamapps\common\Mini Motorways\Mini Motorways_Data\Managed\";
 
         public Main_Mod_Manager()
         {
             InitializeComponent();
+
+            URLdict.Add("NoFail", NoFailDownloadURL);
+            URLdict.Add("UnlimitedUpgrades", UnlimitedUpgradesDownloadURL);
+            URLdict.Add("InstantDeath", InstantDeathDownloadURL);
+            URLdict.Add("NoFailCollection", NoFailCollectionDownloadURL);
+            URLdict.Add("InstantDeathCollection", InstantDeathCollectionDownloadURL);
         }
 
         // Menu Buttons & Version Checks
@@ -74,124 +84,39 @@ namespace MiniMotorways_Mod_Manager
 
         // Modifications & Backups
 
-        public void NoFailDownloadButton_Click(object sender, RoutedEventArgs e)
+        public void DownloadMod_Click(object sender, RoutedEventArgs e)
         {
-            string SteamDirectory = @"D:\SteamLibrary\steamapps\common\Mini Motorways\Mini Motorways_Data\Managed\App.dll";
+            
+            var button = sender as Button;
+            string mod = button.Attributes["Mod"].ToString();
 
-            if (File.Exists(SteamDirectory))
+            using (System.Net.WebClient wc = new WebClient())
             {
-                MakeSteamBackupFile(); // Re-name App.dll ==> Old_App.dll
+                if (File.Exists(SteamDirectory))
+                {
+                    MakeSteamBackupFile(); // Re-name App.dll ==> Old_App.dll
 
-                using (System.Net.WebClient wc = new WebClient())
+                    wc.DownloadFileAsync(
+                        new System.Uri(URLdict[mod]), // Download Path
+                        DefaultSteamDirectory + "App.dll" // Path To Save File
+                    );
+                    MessageBox.Show("Your game has been updated with: {0}.", mod);
+                }
+                else
                 {
                     wc.DownloadFileAsync(
-                        new System.Uri(NoFailDownloadURL), // Download Path
-                        "D:\\SteamLibrary\\steamapps\\common\\Mini Motorways\\Mini Motorways_Data\\Managed\\App.dll" // Path To Save File
+                        new System.Uri(URLdict[mod]), // Download Path
+                        "App.dll" // Path To Save File
                     );
+                    MessageBox.Show("Woops. It seems you have a custom directory for the game set. Replace the App.dll in \"Mini Motorways/Mini Motorways_Data/Managed\".");
                 }
-                MessageBox.Show("Your game has been updated with: No Fail Modification.");
             }
-            else
-            {
-                MessageBox.Show("Woops. It seems you have a custom directory for the game set. As this is only the BETA version of the Mod Manager you'll have to wait until the next update to use this tool.");
-            }
-        } // No Fail Mod
+        }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            string SteamDirectory = @"D:\SteamLibrary\steamapps\common\Mini Motorways\Mini Motorways_Data\Managed\App.dll";
-
-            if (File.Exists(SteamDirectory))
-            {
-                MakeSteamBackupFile(); // Re-name App.dll ==> Old_App.dll
-
-                using (System.Net.WebClient wc = new WebClient())
-                {
-                    wc.DownloadFileAsync(
-                        new System.Uri(UnlimitedUpgradesDownloadURL), // Download Path
-                        "D:\\SteamLibrary\\steamapps\\common\\Mini Motorways\\Mini Motorways_Data\\Managed\\App.dll" // Path To Save File
-                    );
-                }
-                MessageBox.Show("Your game has been updated with: Unlimited Upgrades Mod");
-            }
-            else
-            {
-                MessageBox.Show("Woops. It seems you have a custom directory for the game set. As this is only the BETA version of the Mod Manager you'll have to wait until the next update to use this tool.");
-            } // Unlimited Upgrades Mod
-        } // Unlimited Upgrades Mod
-
-        private void InstantDeathButton_Click(object sender, RoutedEventArgs e)
-        {
-            string SteamDirectory = @"D:\SteamLibrary\steamapps\common\Mini Motorways\Mini Motorways_Data\Managed\App.dll";
-
-            if (File.Exists(SteamDirectory))
-            {
-                MakeSteamBackupFile(); // Re-name App.dll ==> Old_App.dll
-
-                using (System.Net.WebClient wc = new WebClient())
-                {
-                    wc.DownloadFileAsync(
-                        new System.Uri(InstantDeathDownloadURL), // Download Path
-                        "D:\\SteamLibrary\\steamapps\\common\\Mini Motorways\\Mini Motorways_Data\\Managed\\App.dll" // Path To Save File
-                    );
-                }
-                MessageBox.Show("Your game has been updated with: Unlimited Upgrades Mod");
-            }
-            else
-            {
-                MessageBox.Show("Woops. It seems you have a custom directory for the game set. As this is only the BETA version of the Mod Manager you'll have to wait until the next update to use this tool.");
-            }
-        } // Instant Death Mod
-
-        private void NoFailCollectionButton_Click(object sender, RoutedEventArgs e)
-        {
-            string SteamDirectory = @"D:\SteamLibrary\steamapps\common\Mini Motorways\Mini Motorways_Data\Managed\App.dll";
-
-            if (File.Exists(SteamDirectory))
-            {
-                MakeSteamBackupFile(); // Re-name App.dll ==> Old_App.dll
-
-                using (System.Net.WebClient wc = new WebClient())
-                {
-                    wc.DownloadFileAsync(
-                        new System.Uri(NoFailCollectionDownloadURL), // Download Path
-                        "D:\\SteamLibrary\\steamapps\\common\\Mini Motorways\\Mini Motorways_Data\\Managed\\App.dll" // Path To Save File
-                    );
-                }
-                MessageBox.Show("Your game has been updated with: The NoFail Collection Pack.");
-            }
-            else
-            {
-                MessageBox.Show("Woops. It seems you have a custom directory for the game set. As this is only the BETA version of the Mod Manager you'll have to wait until the next update to use this tool.");
-            }
-        } // No Fail Collection ( No Fail + Unlimited Upgrades )
-
-        private void UltimateCollectionButton_Click(object sender, RoutedEventArgs e)
-        {
-            string SteamDirectory = @"D:\SteamLibrary\steamapps\common\Mini Motorways\Mini Motorways_Data\Managed\App.dll";
-
-            if (File.Exists(SteamDirectory))
-            {
-                MakeSteamBackupFile(); // Re-name App.dll ==> Old_App.dll
-
-                using (System.Net.WebClient wc = new WebClient())
-                {
-                    wc.DownloadFileAsync(
-                        new System.Uri(UltimateCollectionDownloadURL), // Download Path
-                        "D:\\SteamLibrary\\steamapps\\common\\Mini Motorways\\Mini Motorways_Data\\Managed\\App.dll" // Path To Save File
-                    );
-                }
-                MessageBox.Show("Your game has been updated with: The Ulimate Collection Pack.");
-            }
-            else
-            {
-                MessageBox.Show("Woops. It seems you have a custom directory for the game set. As this is only the BETA version of the Mod Manager you'll have to wait until the next update to use this tool.");
-            }
-        } // Ulimate Collection ( All Mods )
 
         public void MakeSteamBackupFile()
         {
-            File.Move(@"D:\SteamLibrary\steamapps\common\Mini Motorways\Mini Motorways_Data\Managed\App.dll", @"D:\SteamLibrary\steamapps\common\Mini Motorways\Mini Motorways_Data\Managed\Old_App.dll");
+            File.Move(DefaultSteamDirectory + "App.dll", DefaultSteamDirectory + "Old_App.dll");
         } // Backup Process [ Re-name App.dll ==> Old_App.dll ]
     }
 }
