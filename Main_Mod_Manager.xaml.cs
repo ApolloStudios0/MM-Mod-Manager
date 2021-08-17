@@ -38,11 +38,11 @@ namespace MiniMotorways_Mod_Manager
         {
             InitializeComponent();
 
-            URLdict.Add("NoFail", NoFailDownloadURL);
-            URLdict.Add("UnlimitedUpgrades", UnlimitedUpgradesDownloadURL);
-            URLdict.Add("InstantDeath", InstantDeathDownloadURL);
-            URLdict.Add("NoFailCollection", NoFailCollectionDownloadURL);
-            URLdict.Add("InstantDeathCollection", InstantDeathCollectionDownloadURL);
+            URLdict.Add("NoFailDownloadButton", NoFailDownloadURL);
+            URLdict.Add("UnlimitedUpgradesButton", UnlimitedUpgradesDownloadURL);
+            URLdict.Add("InstantDeathButton", InstantDeathDownloadURL);
+            URLdict.Add("NoFailCollectionButton", NoFailCollectionDownloadURL);
+            URLdict.Add("InstantDeathCollectionButton", InstantDeathCollectionDownloadURL);
         }
 
         // Menu Buttons & Version Checks
@@ -88,7 +88,7 @@ namespace MiniMotorways_Mod_Manager
         {
             
             var button = sender as Button;
-            string mod = button.Attributes["Mod"].ToString();
+            string mod = button.Attributes["Name"].ToString();
 
             using (System.Net.WebClient wc = new WebClient())
             {
