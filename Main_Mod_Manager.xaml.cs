@@ -30,7 +30,7 @@ namespace MiniMotorways_Mod_Manager
         string UnlimitedUpgradesDownloadURL = ""; // Unlimited Upgrades URL
         string InstantDeathDownloadURL = ""; // Instant Death URL
         string NoFailCollectionDownloadURL = ""; // No Fail Collection URL
-        string InstandDeathCollectionDownloadURL = ""; // Instant Death Collection URL
+        string InstantDeathCollectionDownloadURL = ""; // Instant Death Collection URL
 
         string DefaultSteamDirectory = @"C:\SteamLibrary\steamapps\common\Mini Motorways\Mini Motorways_Data\Managed\";
 
@@ -42,7 +42,7 @@ namespace MiniMotorways_Mod_Manager
             URLdict.Add("UnlimitedUpgrades", UnlimitedUpgradesDownloadURL);
             URLdict.Add("InstantDeath", InstantDeathDownloadURL);
             URLdict.Add("NoFailCollection", NoFailCollectionDownloadURL);
-            URLdict.Add("InstantDeathCollection", InstandDeathCollectionDownloadURL);
+            URLdict.Add("InstantDeathCollection", InstantDeathCollectionDownloadURL);
         }
 
         // Menu Buttons & Version Checks
