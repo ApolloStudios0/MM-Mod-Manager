@@ -32,7 +32,7 @@ namespace MiniMotorways_Mod_Manager
         string NoFailCollectionDownloadURL = ""; // No Fail Collection URL
         string InstantDeathCollectionDownloadURL = ""; // Instant Death Collection URL
 
-        string DefaultSteamDirectory = @"C:\SteamLibrary\steamapps\common\Mini Motorways\Mini Motorways_Data\Managed\";
+        string DefaultSteamDirectory = @"C:\Program Files (x86)\Steam\steamapps\common\Mini Motorways\Mini Motorways_Data\Managed\";
 
         public Main_Mod_Manager()
         {
