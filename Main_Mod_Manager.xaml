@@ -27,7 +27,7 @@
         <Rectangle Stroke="#FF999999" Margin="252,127,17,64" Grid.Row="1"/>
         <Label Content="No Fail Mod" Margin="328,5,259,126" FontWeight="Bold"/>
         <Label Content="Plain and Original. This is just the NoFail modification &#xD;&#xA;which prevents the game from stopping your playthrough." Margin="328,18,58,97" FontWeight="Normal"/>
-        <Button x:Name="NoFailDownloadButton" Content="Download" Margin="676,22,32,104" Background="White" BorderBrush="#FF999999" AutomationProperties.Name="NoFailDownloadButton" Mod="NoFail" Click="DownloadMod_Click"/>
+        <Button x:Name="NoFailDownloadButton" Content="Download" Margin="676,22,32,104" Background="White" BorderBrush="#FF999999" AutomationProperties.Name="NoFailDownloadButton" Click="DownloadMod_Click"/>
         <Image Source="/UnlimitedUpgradesIcon.png" Margin="266,80,476,24"/>
         <Label Content="Unlimited Upgrades" Margin="328,77,259,54" FontWeight="Bold"/>
         <Label Content="Unlimited Upgrades helps you gain that edge while playing.&#xD;&#xA;This ensures that you can enjoy the game, without limits." Margin="328,91,58,24" FontWeight="Normal"/>
@@ -37,10 +37,10 @@
         <Label Content="The NoFailConnection pack..&#xD;&#xA;featuring the NoFail Mod + Unlimited Upgrades" Margin="328,74,58,140" FontWeight="Normal" Grid.Row="1"/>
         <Label Content="The Instant Death Collection" Margin="328,127,259,103" FontWeight="Bold" Grid.Row="1"/>
         <Label Content="The Instant Death Collection pack..&#xD;&#xA;Instant Death + Unlimited Upgrades" Margin="328,142,58,72" FontWeight="Normal" Grid.Row="1"/>
-        <Button x:Name="UnlimitedUpgradesButton" Content="Download" Margin="676,95,32,30" Background="White" BorderBrush="#FF999999" Mod="UnlimitedUpgrades" Click="DownloadMod_Click"/>
-        <Button x:Name="InstantDeathButton" Content="Download" Margin="676,10,32,214" Grid.Row="1" Background="White" BorderBrush="#FF999999" Mod="InstantDeath" Click="DownloadMod_Click"/>
-        <Button x:Name="NoFailCollectionButton" Content="Download" Margin="676,75,32,149" Grid.Row="1" Background="White" BorderBrush="#FF999999" Mod="NoFailCollection" Click="DownloadMod_Click"/>
-        <Button x:Name="InstantDeathCollectionButton" Content="Download" Margin="676,144,32,80" Grid.Row="1" Background="White" BorderBrush="#FF999999" Mod="InstantDeathCollection" Click="DownloadMod_Click"/>
+        <Button x:Name="UnlimitedUpgradesButton" Content="Download" Margin="676,95,32,30" Background="White" BorderBrush="#FF999999" Click="DownloadMod_Click"/>
+        <Button x:Name="InstantDeathButton" Content="Download" Margin="676,10,32,214" Grid.Row="1" Background="White" BorderBrush="#FF999999" Click="DownloadMod_Click"/>
+        <Button x:Name="NoFailCollectionButton" Content="Download" Margin="676,75,32,149" Grid.Row="1" Background="White" BorderBrush="#FF999999" Click="DownloadMod_Click"/>
+        <Button x:Name="InstantDeathCollectionButton" Content="Download" Margin="676,144,32,80" Grid.Row="1" Background="White" BorderBrush="#FF999999" Click="DownloadMod_Click"/>
         <Image Height="100" Width="100"/>
         <Image Source="/InstantDeathIcon.png" Margin="268,153,476,210" Grid.RowSpan="2"/>
         <Image Margin="262,60,470,136" Grid.Row="1" Source="/FunCollectionIcon.png"/>
