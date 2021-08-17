@@ -88,11 +88,11 @@ namespace MiniMotorways_Mod_Manager
         {
             
             var button = sender as Button;
-            string mod = button.Attributes["Name"].ToString();
+            string mod = button.Name.ToString();
 
             using (System.Net.WebClient wc = new WebClient())
             {
-                if (File.Exists(SteamDirectory))
+                if (File.Exists(DefaultSteamDirectory + "App.dll"))
                 {
                     MakeSteamBackupFile(); // Re-name App.dll ==> Old_App.dll
 
