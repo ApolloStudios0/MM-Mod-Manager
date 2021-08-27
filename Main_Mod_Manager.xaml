@@ -27,7 +27,7 @@
         <Rectangle Stroke="#FF999999" Margin="252,127,17,64" Grid.Row="1"/>
         <Label Content="No Fail Mod" Margin="328,5,259,126" FontWeight="Bold"/>
         <Label Content="Plain and Original. This is just the NoFail modification &#xD;&#xA;which prevents the game from stopping your playthrough." Margin="328,18,58,97" FontWeight="Normal"/>
-        <Button x:Name="NoFailDownloadButton" Content="Download" Margin="676,22,32,104" Background="White" BorderBrush="#FF999999" AutomationProperties.Name="NoFailDownloadButton" Click="DownloadMod_Click"/>
+        <Button x:Name="NoFailButton" Content="Download" Margin="676,22,32,104" Background="White" BorderBrush="#FF999999" AutomationProperties.Name="NoFailDownloadButton" Click="DownloadMod_Click"/>
         <Image Source="/UnlimitedUpgradesIcon.png" Margin="266,80,476,24"/>
         <Label Content="Unlimited Upgrades" Margin="328,77,259,54" FontWeight="Bold"/>
         <Label Content="Unlimited Upgrades helps you gain that edge while playing.&#xD;&#xA;This ensures that you can enjoy the game, without limits." Margin="328,91,58,24" FontWeight="Normal"/>
