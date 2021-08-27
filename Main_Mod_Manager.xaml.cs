@@ -26,11 +26,11 @@ namespace MiniMotorways_Mod_Manager
 
         Dictionary<string, string> URLdict = new Dictionary<string, string>();
 
-        string NoFailDownloadURL = ""; // No Fail URL
-        string UnlimitedUpgradesDownloadURL = ""; // Unlimited Upgrades URL
-        string InstantDeathDownloadURL = ""; // Instant Death URL
-        string NoFailCollectionDownloadURL = ""; // No Fail Collection URL
-        string InstantDeathCollectionDownloadURL = ""; // Instant Death Collection URL
+        string NoFailDownloadURL = "https://www.dropbox.com/s/u0hd8tzy9bd90jx/App.dll?dl=0"; // No Fail URL
+        string UnlimitedUpgradesDownloadURL = "https://www.dropbox.com/s/msvsrp553en6i01/App.dll?dl=0"; // Unlimited Upgrades URL
+        string InstantDeathDownloadURL = "https://www.dropbox.com/s/ymqbnwz00ncjos1/App.dll?dl=0"; // Instant Death URL
+        string NoFailCollectionDownloadURL = "https://www.dropbox.com/s/9sa2gcmo4q2xkvt/App.dll?dl=0"; // No Fail Collection URL
+        string InstantDeathCollectionDownloadURL = "https://www.dropbox.com/s/l0gfmnaxz0qg0ef/App.dll?dl=0"; // Instant Death Collection URL
 
         string DefaultSteamDirectory = @"C:\Program Files (x86)\Steam\steamapps\common\Mini Motorways\Mini Motorways_Data\Managed\";
 
