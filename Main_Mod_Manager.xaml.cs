@@ -38,7 +38,7 @@ namespace MiniMotorways_Mod_Manager
         {
             InitializeComponent();
 
-            URLdict.Add("NoFailDownloadButton", NoFailDownloadURL);
+            URLdict.Add("NoFailButton", NoFailDownloadURL);
             URLdict.Add("UnlimitedUpgradesButton", UnlimitedUpgradesDownloadURL);
             URLdict.Add("InstantDeathButton", InstantDeathDownloadURL);
             URLdict.Add("NoFailCollectionButton", NoFailCollectionDownloadURL);
@@ -55,12 +55,12 @@ namespace MiniMotorways_Mod_Manager
 
         private void CheckGameVersionButton_Click(object sender, RoutedEventArgs e) // Check Game Version
         {
-            MessageBox.Show("Not Implemented Yet.");
+            MessageBox.Show("Game version is located in settings ingame.", "Not Implemented Yet.");
         }
 
         private void RemoveAllModsButton_Click(object sender, RoutedEventArgs e) // Remove All Modifications (Restored & Replaced Manually)
         {
-            MessageBox.Show("Not Implemented Yet.");
+            MessageBox.Show("Verify integrity of game files in steam to clear all modifications.", "Not Implemented Yet");
         }
 
         private void ContactMeButton_Click(object sender, RoutedEventArgs e)
@@ -70,7 +70,7 @@ namespace MiniMotorways_Mod_Manager
 
         private void DeveloperPanelButton_Click(object sender, RoutedEventArgs e)
         {
-            if(IsDeveloper)
+            if (IsDeveloper)
             {
                 var DeveloperTools = new DevWindow();
                 DeveloperTools.Show();
@@ -86,7 +86,7 @@ namespace MiniMotorways_Mod_Manager
 
         public void DownloadMod_Click(object sender, RoutedEventArgs e)
         {
-            
+
             var button = sender as Button;
             string mod = button.Name.ToString();
 
@@ -100,7 +100,8 @@ namespace MiniMotorways_Mod_Manager
                         new System.Uri(URLdict[mod]), // Download Path
                         DefaultSteamDirectory + "App.dll" // Path To Save File
                     );
-                    MessageBox.Show("Your game has been updated with: {0}.", mod);
+                    string modName = mod.Replace("Button", "");
+                    MessageBox.Show("Your game has been updated with: " + modName, "Download was successful");
                 }
                 else
                 {
@@ -108,15 +109,27 @@ namespace MiniMotorways_Mod_Manager
                         new System.Uri(URLdict[mod]), // Download Path
                         "App.dll" // Path To Save File
                     );
-                    MessageBox.Show("Woops. It seems you have a custom directory for the game set. Replace the App.dll in \"Mini Motorways/Mini Motorways_Data/Managed\".");
+                    MessageBox.Show(
+                        "It seems you have a custom directory for the game.\n\n" +
+                        "Replace the App.dll in:\n" +
+                        "\"Mini Motorways/Mini Motorways_Data/Managed\"\n\n" +
+                        "with the new modded App.dll found in:\n" +
+                        Environment.CurrentDirectory, 
+                        "ERROR: Game files not located");
                 }
             }
         }
 
-
         public void MakeSteamBackupFile()
         {
-            File.Move(DefaultSteamDirectory + "App.dll", DefaultSteamDirectory + "Old_App.dll");
+            try
+            {
+                File.Move(DefaultSteamDirectory + "App.dll", DefaultSteamDirectory + "Old_App.dll");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
         } // Backup Process [ Re-name App.dll ==> Old_App.dll ]
     }
 }
